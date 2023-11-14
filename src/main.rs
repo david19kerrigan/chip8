@@ -195,8 +195,6 @@ fn draw_on_canvas(x: i32, y: i32, canvas: &mut Canvas<Window>, color: u8) {
     if color == 1 {
         canvas.set_draw_color(Color::RGB(255, 255, 255));
     }
-    //let point = Point::new(x * (SCALE as i32), y * (SCALE as i32));
-    //canvas.draw_point(point);
     let rect = Rect::new(x * (SCALE as i32), y * (SCALE as i32), SCALE, SCALE);
     canvas.draw_rect(rect);
     canvas.fill_rect(rect);
@@ -245,7 +243,6 @@ impl Stack {
 }
 
 fn load_rom(memory: &mut Memory, filename: &String) {
-    println!("filename {}", filename);
     let rom = read(filename).unwrap();
     for i in 0..rom.len() {
         memory.memory[START_POS + i] = rom[i];
@@ -278,11 +275,11 @@ fn load_fonts(memory: &mut Memory) {
     memory.memory[2] = 0x90;
     memory.memory[3] = 0x90;
     memory.memory[4] = 0xf0;
-    memory.memory[5] = 0x70; // 1
-    memory.memory[6] = 0x20;
+    memory.memory[5] = 0x20; // 1
+    memory.memory[6] = 0x60;
     memory.memory[7] = 0x20;
-    memory.memory[8] = 0x60;
-    memory.memory[9] = 0x20;
+    memory.memory[8] = 0x20;
+    memory.memory[9] = 0x70;
     memory.memory[10] = 0xf0; // 2
     memory.memory[11] = 0x80;
     memory.memory[12] = 0xf0;
@@ -293,41 +290,41 @@ fn load_fonts(memory: &mut Memory) {
     memory.memory[17] = 0xf0;
     memory.memory[18] = 0x10;
     memory.memory[19] = 0xf0;
-    memory.memory[20] = 0x10; // 4
-    memory.memory[21] = 0x10;
+    memory.memory[20] = 0x90; // 4
+    memory.memory[21] = 0x90;
     memory.memory[22] = 0xf0;
-    memory.memory[23] = 0x90;
-    memory.memory[24] = 0x90;
+    memory.memory[23] = 0x10;
+    memory.memory[24] = 0x10;
     memory.memory[25] = 0xf0; // 5
-    memory.memory[26] = 0x10;
+    memory.memory[26] = 0x80;
     memory.memory[27] = 0xf0;
-    memory.memory[28] = 0x80;
+    memory.memory[28] = 0x10;
     memory.memory[29] = 0xf0;
     memory.memory[30] = 0xf0; // 6
-    memory.memory[31] = 0x90;
+    memory.memory[31] = 0x80;
     memory.memory[32] = 0xf0;
-    memory.memory[33] = 0x80;
+    memory.memory[33] = 0x90;
     memory.memory[34] = 0xf0;
-    memory.memory[35] = 0x40; // 7
-    memory.memory[36] = 0x40;
+    memory.memory[35] = 0xf0; // 7
+    memory.memory[36] = 0x10;
     memory.memory[37] = 0x20;
-    memory.memory[38] = 0x10;
-    memory.memory[39] = 0xf0;
+    memory.memory[38] = 0x40;
+    memory.memory[39] = 0x40;
     memory.memory[40] = 0xf0; // 8
     memory.memory[41] = 0x90;
     memory.memory[42] = 0xf0;
     memory.memory[43] = 0x90;
     memory.memory[44] = 0xf0;
     memory.memory[45] = 0xf0; // 9
-    memory.memory[46] = 0x10;
+    memory.memory[46] = 0x90;
     memory.memory[47] = 0xf0;
-    memory.memory[48] = 0x90;
+    memory.memory[48] = 0x10;
     memory.memory[49] = 0xf0;
-    memory.memory[50] = 0x90; // A
+    memory.memory[50] = 0xf0; // A
     memory.memory[51] = 0x90;
     memory.memory[52] = 0xf0;
     memory.memory[53] = 0x90;
-    memory.memory[54] = 0xf0;
+    memory.memory[54] = 0x90;
     memory.memory[55] = 0xe0; // B
     memory.memory[56] = 0x90;
     memory.memory[57] = 0xe0;
@@ -348,11 +345,11 @@ fn load_fonts(memory: &mut Memory) {
     memory.memory[72] = 0xf0;
     memory.memory[73] = 0x80;
     memory.memory[74] = 0xf0;
-    memory.memory[75] = 0x80; // F
+    memory.memory[75] = 0xf0; // F
     memory.memory[76] = 0x80;
     memory.memory[77] = 0xf0;
     memory.memory[78] = 0x80;
-    memory.memory[79] = 0xf0;
+    memory.memory[79] = 0x80;
 }
 
 fn main() {
