@@ -5,6 +5,5 @@
 - controls are 1->4, q->r, a->f, z->v
 
 ## todo
-- sound
-- upside down text
+- sound (lol)
 - need the help of the great mind that created hyperspace
